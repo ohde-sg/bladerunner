@@ -42,10 +42,9 @@ class Cache
     {
         $result = wp_upload_dir()['basedir'];
         if (is_multisite() && !(is_main_network() && is_main_site() && defined('MULTISITE'))) {
-            $result = realpath($result.'/../..');
+            $result = $result.'/../..';
         }
         $result .= '/.cache';
-        $result = realpath($result);
 
         return apply_filters('bladerunner/cache/path', $result);
     }
