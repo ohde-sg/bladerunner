@@ -67,7 +67,7 @@ class Cache
     public static function setPermissions()
     {
         $dir = self::path();
-        $permission = apply_filters('bladerunner/cache/permission', 777);
+        $permission = apply_filters('bladerunner/cache/permission', 775);
         if ($permission) {
             try {
                 @chmod($dir, octdec($permission));

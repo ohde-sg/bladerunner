@@ -22,6 +22,11 @@ $loader = new Bladerunner\Autoloader();
 $loader->addNamespace('Bladerunner', dirname(__FILE__) . '/src');
 $loader->register();
 
+//cacheフォルダの場所設定
+add_filter('bladerunner/cache/path', function() {
+    return __DIR__.'/.cache';
+});
+
 include_once 'plugin_globals.php';
 
 register_activation_hook(__FILE__, '\Bladerunner\init::createCacheDirectory');
